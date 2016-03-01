@@ -1,0 +1,19 @@
+/* CSS declarations go here */
+body {
+    display: flex;
+    justify-content: center;
+}
+.app {
+    widows: 24rem;;
+}
+.todo-list {
+    display: flex;
+    flex-flow: column;
+}
+.todo {
+    display: flex;
+    justify-content: space-between;
+}
+input {
+    width: 100%;
+}
