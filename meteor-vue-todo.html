@@ -21,8 +21,8 @@
                    @keyup.enter="addNewTodo">
             <div class="todo-list">
               <div class="todo" v-for="todo in todos">
-                  <span> {{ todo.title }} </span>
-                  <button @click="removeTodo(todo)">&times;</button>
+                <button class="todo-remove" @click="removeTodo(todo)">&times;</button>
+                <span> {{ todo.title }} </span>
               </div>
             </div>
           </div>
