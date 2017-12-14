@@ -1,20 +1,27 @@
 <head>
-  <title>meteor-vue-todo</title>
+  <title>Meteor Mogul Sample To Do App</title>
 </head>
 
 <body>
-  <app></app>
+
+  <div id="wrapper">
+    <app></app>
+  </div>
 
   <template id="app">
-      <div class="app">
-          <h1>Meteor Vue Todos</h1>
-          <input type="text" placeholder="Add a new todo here" v-model="newTodo" @keyup.enter="addNewTodo">
-          <div class="todo-list">
-              <div class="todo" v-for="todo in todos">
+    <div class="app">
+        <h1>Meteor Mogul Todos</h1>
+        <input type="text"
+               placeholder="Add a new todo here"
+               v-model="newTodo"
+               @keyup.enter="addNewTodo">
+        <div class="todo-list">
+            <div class="todo" v-for="todo in todos">
                   <span> {{ todo.title }} </span>
                   <button @click="removeTodo(todo)">&times;</button>
-              </div>
-          </div>
-      </div>
+            </div>
+        </div>
+    </div>
   </template>
+
 </body>

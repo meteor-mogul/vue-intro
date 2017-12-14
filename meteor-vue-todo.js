@@ -27,7 +27,7 @@ if (Meteor.isClient) {
 
     Meteor.startup(() => {
         new Vue({
-            el: 'body',
+            el: '#wrapper',
             components: {
                 App
             }
