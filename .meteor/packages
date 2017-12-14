@@ -16,5 +16,7 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
-static-html
-meteormogul:vue-dist
+
+static-html             # Doesn't compile Blaze templates
+meteormogul:vue-dist    # VueJS JavaScript framework (replaces Blaze)
+twbs:bootstrap          # Front-end component library (styles)

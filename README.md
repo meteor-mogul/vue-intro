@@ -4,7 +4,9 @@ An example Meteor to do app using Vue as the front end.
 
 Forked from https://github.com/lwakefield/meteor-vue-todo
 
-Updated to use Vue 2.
+Major changes since fork:
+* Updated to use Vue 2.
+* Uses bootstrap for styling.
 
 You can run it:
 
