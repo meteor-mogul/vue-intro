@@ -1,5 +1,11 @@
 # Changelog for Mogul Meteor To Do App
 
+## [0.0.5] - 2018-01-05
+
+### Changed
+
+- <template> should be <script type="text/x-template">
+
 ## [0.0.4] - 2018-01-04
 
 ### Changed
