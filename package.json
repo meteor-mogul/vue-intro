@@ -1,5 +1,5 @@
 {
-  "name": "meteor-vue-todo",
+  "name": "vue-intro",
   "private": true,
   "scripts": {
     "start": "meteor run"

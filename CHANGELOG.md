@@ -1,3 +1,19 @@
+# Changelog for Meteor Mogul vue-intro
+
+## [0.1.0] - 2018-01-05
+
+### Added
+
+- Vue.js examples
+
+### Changed
+
+- Renamed files
+
+### Removed
+
+- Unnecessary packages
+
 # Changelog for Mogul Meteor To Do App
 
 ## [0.0.5] - 2018-01-05

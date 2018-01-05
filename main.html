@@ -1,11 +1,64 @@
 <head>
-  <title>Meteor Mogul Sample To Do App</title>
+  <title>Meteor Mogul Introduction to Vue.js</title>
 </head>
 
 <body>
 
-  <div id="wrapper">
-     <app></app>
+  <h1>Meteor Mogul Introduction to Vue.js</h1>
+
+  <p>This is an implementation by
+    <a href="https://meteor-mogul.github.io/" target="_blank">Meteor Mogul</a>, written to work with
+    <a href="https://www.meteor.com/" target="_blank">Meteor</a>, of the
+    <a href="https://vuejs.org/" target="_blank">Vue.js</a> code examples in the
+    <a href="https://vuejs.org/v2/guide/index.html" target="_blank">Introduction to Vue.js</a>.</p>
+
+  <h2><a href="https://vuejs.org/v2/guide/index.html#Declarative-Rendering" target="_blank">Declarative Rendering</a></h2>
+
+  <!-- Render target for hello-vue app -->
+  <!-- The row and col- classes are Bootstrap styles. The demo class is from Vue.js -->
+  <div class="row">
+    <div class="col-md-1 app-name">app</div>
+    <div id="hello-vue" class="col-md-6 demo">
+      <!-- Render target for message data -->
+      {{ message }}
+    </div>
   </div>
+
+  <p>Open your browser’s JavaScript console (right now, on this page) and set <code>app.message</code> to a different value.</p>
+
+  <p>For Google Chrome, here are the steps to do that:</p>
+
+  <ol>
+    <li>Open up the triple-dot "Customize and Control Google Chrome" menu (top right)</li>
+    <li>Select "More Tools"</li>
+    <li>Select "Developer Tools"</li>
+    <li>Click on the Console tab</li>
+    <li>In the console, type <code>app.message = "&lt;different value&gt;"</code></li>
+  </ol>
+
+  <!-- Render target for hover-mouse-over app -->
+  <div class="row">
+    <div class="col-md-1 app-name">app2</div>
+    <div id="hover-mouse-over" class="col-md-6 demo">
+      <span v-bind:title="message">
+        Hover your mouse over me for a few seconds
+        to see my dynamically bound title!
+      </span>
+    </div>
+  </div>
+
+  <p>If you open up your JavaScript console again and enter <code>app2.message = 'some new message'</code>,
+     you’ll once again see that the bound HTML - in this case the <code>title</code> attribute - has been updated.</p>
+
+  <h2><a href="https://vuejs.org/v2/guide/index.html#Handling-User-Input" target="_blank">Handling User Input</a></h2>
+
+  <div id="reverse-message" class="demo">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+  </div>
+
+  <h2><a href="https://vuejs.org/v2/guide/index.html#Conditionals-and-Loops" target="_blank">Conditionals and Loops</a></h2>
+
+
 
 </body>

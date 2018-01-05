@@ -1,18 +1,12 @@
-# mogul-meteor-vue-todo
+# vue-intro
 
-An example Meteor to do app using Vue as the front end.
-
-Forked from https://github.com/lwakefield/meteor-vue-todo
-
-Major changes since fork:
-* Updated to use Vue 2.
-* Uses bootstrap for styling.
+An implementation of the [Introduction to Vue.js](https://vuejs.org/v2/guide/index.html) that works with [Meteor](https://www.meteor.com/).
 
 You can run it:
 
 ```
-$ git clone https://github.com/meteor-mogul/mogul-meteor-vue-todo.git mogul-todo
-$ cd mogul-todo
+$ git clone https://github.com/meteor-mogul/vue-intro.git
+$ cd vue-intro
 $ meteor npm install
 $ meteor
 ```
