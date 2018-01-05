@@ -1,4 +1,4 @@
-# mogul-vue-todo
+# mogul-meteor-vue-todo
 
 An example Meteor to do app using Vue as the front end.
 
@@ -11,7 +11,8 @@ Major changes since fork:
 You can run it:
 
 ```
-$ git clone https://github.com/meteor-mogul/mogul-meteor-vue-todo.git
+$ git clone https://github.com/meteor-mogul/mogul-meteor-vue-todo.git mogul-todo
+$ cd mogul-todo
 $ meteor npm install
 $ meteor
 ```
