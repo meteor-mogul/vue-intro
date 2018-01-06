@@ -50,6 +50,62 @@ if (Meteor.isClient) {
         }
       });
 
+      app6 = new Vue({
+        el: '#two-way-binding',
+        data: {
+          message: 'Hello Vue!'
+        }
+      });
+
+      // Conditionals and Loops
+      // See https://vuejs.org/v2/guide/index.html#Conditionals-and-Loops
+
+      app3 = new Vue({
+        el: '#see-me',
+        data: {
+          seen: true
+        },
+        methods: {
+          toggleSeen: function () {
+            this.seen = !this.seen;
+          }
+        }
+      });
+
+      app4 = new Vue({
+        el: '#simple-list',
+        data: {
+          todos: [
+            { text: 'Learn JavaScript' },
+            { text: 'Learn Vue' },
+            { text: 'Build something awesome' }
+          ]
+        }
+      });
+
+      // Composing with Components
+      // See https://vuejs.org/v2/guide/index.html#Composing-with-Components
+
+      app7 = new Vue({
+        el: '#grocery-list',
+        data: {
+          groceryList: [
+            { id: 0, text: 'Vegetables' },
+            { id: 1, text: 'Cheese' },
+            { id: 2, text: 'Whatever else humans are supposed to eat' }
+          ],
+          count: 3,
+          newTodo: ''
+        },
+        methods: {
+          addNewTodo: function () {
+            this.groceryList.push({id: this.count, text: this.newTodo });
+            this.count += 1;
+            this.newTodo = '';
+          }
+        }
+      })
+
     });
 
 }

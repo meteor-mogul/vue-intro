@@ -1,5 +1,11 @@
 # Changelog for Meteor Mogul vue-intro
 
+## [0.1.1] - 2018-01-05
+
+### Added
+
+- All Vue.js examples from Introduction
+
 ## [0.1.0] - 2018-01-05
 
 ### Added

@@ -52,13 +52,86 @@
 
   <h2><a href="https://vuejs.org/v2/guide/index.html#Handling-User-Input" target="_blank">Handling User Input</a></h2>
 
-  <div id="reverse-message" class="demo">
-    <p>{{ message }}</p>
-    <button v-on:click="reverseMessage">Reverse Message</button>
+  <div class="row">
+    <div class="col-md-1 app-name">app5</div>
+    <div id="reverse-message" class="col-md-6 demo">
+      <p>{{ message }}</p>
+      <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-1 app-name">app6</div>
+    <div id="two-way-binding" class="col-md-6 demo">
+      <p>{{ message }}</p>
+      <!-- NOTE: Vue magic (v-model two-way binding) -->
+      <input v-model="message">
+    </div>
+  </div>
+
+  <p>The <code>v-model</code> directive provides two-way binding between form input and app state.</p>
 
   <h2><a href="https://vuejs.org/v2/guide/index.html#Conditionals-and-Loops" target="_blank">Conditionals and Loops</a></h2>
 
+  <div class="row">
+    <div class="col-md-1 app-name">app3</div>
+    <div id="see-me" class="col-md-6 demo">
+      <button v-on:click="toggleSeen">Toggle</button>
+      <span v-if="seen">Now you see me</span>
+    </div>
+  </div>
 
+  <p>Vue can bind data to not only text and attributes, but also the structure of the DOM.</p>
+
+  <div class="row">
+    <div class="col-md-1 app-name">app4</div>
+    <div id="simple-list" class="col-md-6 demo">
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <p>In the console, enter <code>app4.todos.push({ text: 'New item' })</code>. You should see a new item appended to the list.</p>
+
+  <h2><a href="https://vuejs.org/v2/guide/index.html#Composing-with-Components" target="_blank">Composing with Components</a></h2>
+
+  <div class="row">
+    <div class="col-md-1 app-name">app7</div>
+    <div id="grocery-list" class="col-md-6 demo">
+      <ol>
+        <!--
+          Now we provide each todo-item with the todo object
+          it's representing, so that its content can be dynamic.
+
+          NOTE: Vue magic (v-bind:key)
+          We also need to provide each component with a "key."
+
+          To give Vue a hint so that it can track each node’s identity,
+          and thus reuse and reorder existing elements, you need to
+          provide a unique key attribute for each item.
+          An ideal value for key is the unique id of each item.
+
+          Use v-bind to bind the key to dynamic values.
+          See https://vuejs.org/v2/guide/list.html#key
+        -->
+        <todo-item
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind:key="item.id">
+        </todo-item>
+      </ol>
+      <!-- NOTE: Vue magic (@ is shorthand for v-on:)
+           A shorthand for event handlers is @ instead of v-on:.
+           See https://vuejs.org/v2/guide/syntax.html#v-on-Shorthand -->
+      <input type="text"
+       class="form-control"
+       placeholder="Add a new grocery list item here"
+       v-model="newTodo"
+       @keyup.enter="addNewTodo">
+    </div>
+  </div>
 
 </body>
