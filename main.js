@@ -20,6 +20,7 @@ if (Meteor.isClient) {
       // Vue instance by name from the JavaScript console in your browser.
       // Do not scope app with var or local; declare app as global.
       app = new Vue({
+          // Render target is an element with id="hello-vue"
           el: '#hello-vue',
           data: {
             message: 'Hello Vue!'
@@ -41,7 +42,7 @@ if (Meteor.isClient) {
       app5 = new Vue({
         el: '#reverse-message',
         data: {
-          message: 'Hello Vue.js!'
+          message: 'A man a plan a canal Panama'
         },
         methods: {
           reverseMessage: function () {
@@ -106,6 +107,36 @@ if (Meteor.isClient) {
         }
       })
 
+      // More Examples
+
+      // Interpolations
+      // See https://vuejs.org/v2/guide/syntax.html#Interpolations
+      vmInterpolations = new Vue({
+        el: '#vm-interpolations',
+        template: '#vm-interpolations-template',
+        data: {
+          msg: 'in a <span style="color:green">bottle</span>',
+          styleObject: {
+            fontFamily: "Georgia",
+            color: "purple"
+          }
+        }
+      });
+
+
+      // Functional Components
+      // See https://vuejs.org/v2/guide/render-function.html#Functional-Components
+
+      vmFunctional = new Vue({
+        el: '#vm-functional',
+        template: '#vm-functional-template',
+        data: {
+          parentSelection: 0
+        }
+      });
+
+    // Meteor.startup()
     });
 
+// if (Meteor.isClient)
 }

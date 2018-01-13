@@ -15,35 +15,57 @@
   <h2><a href="https://vuejs.org/v2/guide/index.html#Declarative-Rendering" target="_blank">Declarative Rendering</a></h2>
 
   <!-- Render target for hello-vue app -->
-  <!-- The row and col- classes are Bootstrap styles. The demo class is from Vue.js -->
+  <!-- The row and col- CSS classes are Bootstrap styles. The demo CSS class is from Vue.js -->
   <div class="row">
+    <!-- I display the name of the app per the Intro to Vue docs.  E.g. "app" for the first app. -->
+    <!-- The app-name CSS class just styles the name of the app for display. -->
     <div class="col-md-1 app-name">app</div>
-    <div id="hello-vue" class="col-md-6 demo">
+    <!-- I've renamed the render target for each app so I know what each app actually does. -->
+    <!-- For example, the render target for app is hello-vue. -->
+    <div id="hello-vue" class="col-md-4 demo">
       <!-- Render target for message data -->
       {{ message }}
+    </div>
+    <div class="col-md-4"><pre>
+app = new Vue({
+    // Render target is an element with id="hello-vue"
+    el: '#hello-vue',
+    data: {
+      message: 'Hello Vue!'
+    }
+});</pre>
     </div>
   </div>
 
   <p>Open your browser’s JavaScript console (right now, on this page) and set <code>app.message</code> to a different value.</p>
 
-  <p>For Google Chrome, here are the steps to do that:</p>
+  <p>For <a href="https://www.mozilla.org/en-US/firefox/">Mozilla Firefox</a>, here's how to do that:</p>
 
   <ol>
-    <li>Open up the triple-dot "Customize and Control Google Chrome" menu (top right)</li>
-    <li>Select "More Tools"</li>
-    <li>Select "Developer Tools"</li>
-    <li>Click on the Console tab</li>
-    <li>In the console, type <code>app.message = "&lt;different value&gt;"</code></li>
+    <li>Open up the hamburger menu (top right)</li>
+    <li>Select "Web Developer"</li>
+    <li>Select "Web Console"</li>
+    <li>Select the "Console" tab (usually selected by default already)</li>
+    <li>At the console cursor (very bottom of console window), type <code>app.message = "&lt;different value&gt;"</code></li>
+    <li>Press Enter after each console command to execute it</li>
   </ol>
 
   <!-- Render target for hover-mouse-over app -->
   <div class="row">
     <div class="col-md-1 app-name">app2</div>
-    <div id="hover-mouse-over" class="col-md-6 demo">
+    <div id="hover-mouse-over" class="col-md-4 demo">
       <span v-bind:title="message">
         Hover your mouse over me for a few seconds
         to see my dynamically bound title!
       </span>
+    </div>
+    <div class="col-md-4"><pre>
+app2 = new Vue({
+  el: '#hover-mouse-over',
+  data: {
+    message: 'You loaded this page on ' + new Date().toLocaleString()
+  }
+});</pre>
     </div>
   </div>
 
@@ -54,9 +76,22 @@
 
   <div class="row">
     <div class="col-md-1 app-name">app5</div>
-    <div id="reverse-message" class="col-md-6 demo">
+    <div id="reverse-message" class="col-md-4 demo">
       <p>{{ message }}</p>
       <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+    <div class="col-md-4"><pre>
+app5 = new Vue({
+  el: '#reverse-message',
+  data: {
+    message: 'A man a plan a canal Panama'
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+    }
+  }
+});</pre>
     </div>
   </div>
 
@@ -132,6 +167,88 @@
        v-model="newTodo"
        @keyup.enter="addNewTodo">
     </div>
+  </div>
+
+  <p>That's the end of the <a href="https://vuejs.org/v2/guide/index.html" target="_blank">Introduction to Vue.js</a>.</p>
+
+  <hr />
+
+  <h1>More Examples</h1>
+
+  <h2><a href="https://vuejs.org/v2/guide/syntax.html#Interpolations" target="_blank">Interpolations</a></h2>
+
+  <script type="text/x-template" id="vm-interpolations-template">
+    <!-- Need to have one root element for template, so wrap everything in a <div> -->
+    <div>
+      <p>Message: <input v-model="msg"></p>
+      <!-- Interpolate reactively, convert HTML to text -->
+      <p>Mustaches: <span>{{ msg }}</span></p>
+      <!-- Non-reactive -->
+      <p>v-once: <span v-once>{{ msg }}</span></p>
+      <!-- Interpolate and allow HTML
+           NOTE: This opens up possibility of XSS vulnerability
+           See https://vuejs.org/v2/guide/syntax.html#Raw-HTML -->
+      <p>v-html: <span v-html="msg"></span></p>
+      <br />
+      <!-- This example shows how to interpolate a data object in an HTML
+           attribute -->
+      <p>Font family: <input v-model="styleObject.fontFamily"></p>
+      <p>Color: <input v-model="styleObject.color"></p>
+      <p>font-family: {{styleObject.fontFamily}}</p>
+      <p>color: {{styleObject.color}}</p>
+      <p><span v-bind:style="styleObject">Check it out!</span></p>
+      <br />
+      <!-- Here's how to interpolate JavaScript expressions -->
+      <p>You loaded this page at {{Date().toLocaleString()}}.</p>
+      <p>{{(new Date().getHours() < 4) ? "It's late! Go to bed!" : "Keep hacking."}}</p>
+      <br />
+      <!-- Things are a little different with components.
+           data must be function that returns a new object for each component
+           instance.
+           But then you can do all the same stuff with interpolation. -->
+      <vc-interpolate></vc-interpolate>
+      <vc-interpolate></vc-interpolate>
+    </div>
+  </script>
+
+  <div class="row">
+    <div class="col-md-2 app-name">vmInterpolations</div>
+    <!-- The entire element gets replaced, so need to wrap the
+         Vue instance in a div with the CSS class -->
+    <div class="col-md-4 demo"><div id="vm-interpolations"></div></div>
+  </div>
+
+
+  <h2><a href="https://vuejs.org/v2/guide/render-function.html#Functional-Components" target="_blank">Functional Components</a></h2>
+
+  <p>Functional components are stateless (no <code>data</code>) and instanceless (no <code>this</code> context).</p>
+
+  <p>They’re very useful as wrapper components. For example, when you need to:</p>
+
+  <ul>
+    <li>Programmatically choose one of several other components to delegate to</li>
+    <li>Manipulate children, props, or data before passing them on to a child component</li>
+  </ul>
+
+  <p>Here’s an example of a functional "selection" component that delegates to
+     different components, depending on the props passed to it:</p>
+
+  <script type="text/x-template" id="vm-functional-template">
+    <!-- Need to have one root element for template, so wrap everything in a <div> -->
+    <div>
+      <!-- You can cast to Number type with v-model.number -->
+      Which component: <input type="number" v-model.number="parentSelection">
+      <div>Here's the component:</div>
+      <!-- Naming the selection variables parent- and child- to clarify what's what. -->
+      <vc-selector v-bind:child-selection="parentSelection"></vc-selector>
+    </div>
+  </script>
+
+  <div class="row">
+    <div class="col-md-1 app-name">vmFunctional</div>
+    <!-- The entire element gets replaced, so need to wrap the vm-functional
+         Vue instance in a div with the CSS class -->
+    <div class="col-md-6 demo"><div id="vm-functional"></div></div>
   </div>
 
 </body>

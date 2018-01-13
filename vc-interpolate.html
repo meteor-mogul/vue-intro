@@ -1,0 +1,13 @@
+<!-- body tags are required so static-html knows where to stick this HTML -->
+<body>
+  <!-- Templates for Vue components can go in <script> tags -->
+  <script type="text/x-template" id="vc-interpolate-template">
+    <div>
+      <div>Interpolate Component Template</div>
+      <p>Message: <input v-model="msg"></p>
+      <p>msg: {{msg}}</p>
+      <p>v-once: <span v-once>{{msg}}</span></p>
+      <p>Message length: <span>{{msg.length}}</span></p>
+    </div>
+  </script>
+</body>

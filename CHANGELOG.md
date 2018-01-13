@@ -1,5 +1,13 @@
 # Changelog for Meteor Mogul vue-intro
 
+## [0.1.2] - 2018-01-12
+
+### Added
+
+- Functional Components example
+- Interpolation example
+- Code blocks showing JS next to examples
+
 ## [0.1.1] - 2018-01-05
 
 ### Added
