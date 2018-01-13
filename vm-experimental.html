@@ -1,0 +1,33 @@
+<body>
+
+  <!-- This is the template for the Vue instance that calls the
+       experimental components. -->
+  <script type="text/x-template" id="vm-experimental-template">
+    <vc-experimental></vc-experimental>
+  </script>
+
+  <script type="text/x-template" id="vc-experimental-template-1">
+    <!-- Need to have one root element for template, so wrap everything in a <div> -->
+    <div>
+      <p>Experiment 1</p>
+      <p>Stop watch: {{stopWatch}}</p>
+      <p><button v-on:click="checkWatch">Check time with a button press</button> <span>{{message}}</span></p>
+      <p><span v-bind:title="message" v-on:mouseover="checkWatch">Check time with a hover over</span></p>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="vc-experimental-template-2">
+    <!-- Need to have one root element for template, so wrap everything in a <div> -->
+    <div>
+      <p>Experiment 2</p>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="vc-experimental-template-3">
+    <!-- Need to have one root element for template, so wrap everything in a <div> -->
+    <div>
+      <p>Experiment 3</p>
+    </div>
+  </script>
+
+</body>

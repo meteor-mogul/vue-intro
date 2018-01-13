@@ -105,7 +105,7 @@ if (Meteor.isClient) {
             this.newTodo = '';
           }
         }
-      })
+      });
 
       // More Examples
 

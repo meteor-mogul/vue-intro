@@ -1,5 +1,15 @@
 # Changelog for Meteor Mogul vue-intro
 
+## [0.1.3] - 2018-01-13
+
+### Added
+
+- Figured out how to use delegated components selected by functional component
+
+### Changed
+
+- Experimental now using functional component to select other components
+
 ## [0.1.2] - 2018-01-12
 
 ### Added

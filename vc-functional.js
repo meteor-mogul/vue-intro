@@ -5,12 +5,20 @@ import { Meteor } from 'meteor/meteor'
 // of the functional component below.
 // See https://vuejs.org/v2/guide/render-function.html#Functional-Components
 var vcOne = {
-  template: '#vc-one-template'
+  name: 'vcOne',
+  template: '#vc-one-template',
+  data: function () {
+    return {
+      message: "Templating is job 1"
+    }
+  }
 };
 var vcTwo = {
+  name: 'vcTwo',
   template: '#vc-two-template'
 };
 var vcThree = {
+  name: 'vcThree',
   template: '#vc-three-template'
 };
 
@@ -18,11 +26,11 @@ var vcThree = {
 //  * no data
 //  * no this context
 // Functional components are fast and useful as wrapper commponents.
+// See https://vuejs.org/v2/guide/render-function.html#Functional-Components
 // In this case, we use it to programmatically choose one of several other
 // components "to delegate to."
-// I don't fully understand what "delegate to" means.  Displaying a static
-// template is easy, but how to go beyond that?
 Vue.component('vc-selector', {
+  name: 'vc-selector',
   functional: true,
   props: { childSelection: Number },
   render: function (createElement, context) {

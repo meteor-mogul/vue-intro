@@ -97,10 +97,18 @@ app5 = new Vue({
 
   <div class="row">
     <div class="col-md-1 app-name">app6</div>
-    <div id="two-way-binding" class="col-md-6 demo">
+    <div id="two-way-binding" class="col-md-4 demo">
       <p>{{ message }}</p>
       <!-- NOTE: Vue magic (v-model two-way binding) -->
       <input v-model="message">
+    </div>
+    <div class="col-md-4"><pre>
+app6 = new Vue({
+  el: '#two-way-binding',
+  data: {
+    message: 'Hello Vue!'
+  }
+});</pre>
     </div>
   </div>
 
@@ -110,9 +118,22 @@ app5 = new Vue({
 
   <div class="row">
     <div class="col-md-1 app-name">app3</div>
-    <div id="see-me" class="col-md-6 demo">
+    <div id="see-me" class="col-md-4 demo">
       <button v-on:click="toggleSeen">Toggle</button>
       <span v-if="seen">Now you see me</span>
+    </div>
+    <div class="col-md-4"><pre>
+app3 = new Vue({
+  el: '#see-me',
+  data: {
+    seen: true
+  },
+  methods: {
+    toggleSeen: function () {
+      this.seen = !this.seen;
+    }
+  }
+});</pre>
     </div>
   </div>
 
@@ -120,12 +141,24 @@ app5 = new Vue({
 
   <div class="row">
     <div class="col-md-1 app-name">app4</div>
-    <div id="simple-list" class="col-md-6 demo">
+    <div id="simple-list" class="col-md-4 demo">
       <ol>
         <li v-for="todo in todos">
           {{ todo.text }}
         </li>
       </ol>
+    </div>
+    <div class="col-md-4"><pre>
+app4 = new Vue({
+  el: '#simple-list',
+  data: {
+    todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue' },
+      { text: 'Build something awesome' }
+    ]
+  }
+});</pre>
     </div>
   </div>
 
@@ -135,7 +168,7 @@ app5 = new Vue({
 
   <div class="row">
     <div class="col-md-1 app-name">app7</div>
-    <div id="grocery-list" class="col-md-6 demo">
+    <div id="grocery-list" class="col-md-4 demo">
       <ol>
         <!--
           Now we provide each todo-item with the todo object
@@ -166,6 +199,27 @@ app5 = new Vue({
        placeholder="Add a new grocery list item here"
        v-model="newTodo"
        @keyup.enter="addNewTodo">
+    </div>
+    <div class="col-md-4"><pre>
+app7 = new Vue({
+  el: '#grocery-list',
+  data: {
+    groceryList: [
+      { id: 0, text: 'Vegetables' },
+      { id: 1, text: 'Cheese' },
+      { id: 2, text: 'Whatever else humans are supposed to eat' }
+    ],
+    count: 3,
+    newTodo: ''
+  },
+  methods: {
+    addNewTodo: function () {
+      this.groceryList.push({id: this.count, text: this.newTodo });
+      this.count += 1;
+      this.newTodo = '';
+    }
+  }
+})</pre>
     </div>
   </div>
 
@@ -245,10 +299,19 @@ app5 = new Vue({
   </script>
 
   <div class="row">
-    <div class="col-md-1 app-name">vmFunctional</div>
+    <div class="col-md-2 app-name">vmFunctional</div>
     <!-- The entire element gets replaced, so need to wrap the vm-functional
          Vue instance in a div with the CSS class -->
-    <div class="col-md-6 demo"><div id="vm-functional"></div></div>
+    <div class="col-md-4 demo"><div id="vm-functional"></div></div>
+  </div>
+
+  <h2>Experiments</h2>
+
+  <div class="row">
+    <div class="col-md-2 app-name">vmExperimental</div>
+    <!-- The entire element gets replaced, so need to wrap the
+         Vue instance in a div with the CSS class -->
+    <div class="col-md-4 demo"><div id="vm-experimental"></div></div>
   </div>
 
 </body>

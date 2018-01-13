@@ -2,7 +2,12 @@
 <body>
   <!-- Templates for Vue components can go in <script> tags -->
   <script type="text/x-template" id="vc-one-template">
-    <div>One Flew Over the Cuckoo's Nest</div>
+    <!-- Need to wrap everything in one element -->
+    <div>
+      <div>One Flew Over the Cuckoo's Nest</div>
+      <input v-model="message">
+      <span>My message to you: {{message}}</span>
+    </div>
   </script>
 
   <script type="text/x-template" id="vc-two-template">
