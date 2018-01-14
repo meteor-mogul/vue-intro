@@ -36,7 +36,7 @@ Vue.component('vc-selector', {
   render: function (createElement, context) {
     function selectComponent() {
         let selection = context.props.childSelection;
-        console.log("vc-selector selection:", selection, typeof selection);
+        // console.log("vc-selector selection:", selection, typeof selection);
         switch (selection) {
           case 1:
             return vcOne;

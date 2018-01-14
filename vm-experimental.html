@@ -3,7 +3,7 @@
   <!-- This is the template for the Vue instance that calls the
        experimental components. -->
   <script type="text/x-template" id="vm-experimental-template">
-    <vc-experimental></vc-experimental>
+    <vc-experimental v-bind:selector="selector" v-on:timecheck="chooseComponent"></vc-experimental>
   </script>
 
   <script type="text/x-template" id="vc-experimental-template-1">
@@ -11,8 +11,8 @@
     <div>
       <p>Experiment 1</p>
       <p>Stop watch: {{stopWatch}}</p>
-      <p><button v-on:click="checkWatch">Check time with a button press</button> <span>{{message}}</span></p>
-      <p><span v-bind:title="message" v-on:mouseover="checkWatch">Check time with a hover over</span></p>
+      <p><button v-on:click="checkWatch">Check time with a button press</button></p>
+      <p><span>{{message}}</span></p>
     </div>
   </script>
 
@@ -20,6 +20,8 @@
     <!-- Need to have one root element for template, so wrap everything in a <div> -->
     <div>
       <p>Experiment 2</p>
+      <p v-bind:title="message">Stop watch: {{stopWatch}}</p>
+      <p><span v-on:mouseover="checkWatch">Check time with a hover over</span></p>
     </div>
   </script>
 
@@ -27,6 +29,7 @@
     <!-- Need to have one root element for template, so wrap everything in a <div> -->
     <div>
       <p>Experiment 3</p>
+      <input v-model.number="selector" v-on:input="checkWatch" type="number">
     </div>
   </script>
 

@@ -1,5 +1,11 @@
 # Changelog for Meteor Mogul vue-intro
 
+## [0.1.4] - 2018-01-13
+
+### Added
+
+- Figured out how to emit events and swap out components based on events
+
 ## [0.1.3] - 2018-01-13
 
 ### Added
