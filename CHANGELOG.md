@@ -1,5 +1,11 @@
 # Changelog for Meteor Mogul vue-intro
 
+## [0.1.5] - 2018-01-14
+
+### Added
+
+- Notes on how to write templates and component code.
+
 ## [0.1.4] - 2018-01-13
 
 ### Added

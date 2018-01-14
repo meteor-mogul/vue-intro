@@ -12,6 +12,35 @@
     <a href="https://vuejs.org/" target="_blank">Vue.js</a> code examples in the
     <a href="https://vuejs.org/v2/guide/index.html" target="_blank">Introduction to Vue.js</a>.</p>
 
+  <h2>Getting Started</h2>
+
+  <p>This repo shows you how to use Vue in a Meteor app.  See comments in the <code>.html</code> and <code>.js</code> files to understand what's going on and avoid the pitfalls I fell into.</p>
+
+  <p>To start using Vue in a meteor project, do the following:</p>
+
+  <ol>
+    <li>Use the <code>meteormogul:vue-dist</code> Meteor package on <a href="https://atmospherejs.com/meteormogul/vue-dist">Atmosphere</a> to get a version of Vue that can compile templates.</li>
+    <li>Use the <code>static-html</code> Meteor package to bundle <code>.html</code> files without compiling them to <a href="http://blazejs.org/">Blaze</a> templates.</li>
+    <li><code>import { Vue } from 'meteor/meteormogul:vue-dist'</code> in client code to use Vue.</li>
+    <li>Write Vue templates in <code>.html</code> files.  The <code>script type="text/x-template" id="template-name"</code> tag gives you the most flexibility.</li>
+    <li>Split screen in your editor to work on the <code>.html</code>, <code>.js</code> and <code>.css</code> pieces of your Vue components simultaneously.</li>
+  </ol>
+
+  <p>Discussion:</p>
+
+  <ol>
+    <li>Add <code>meteormogul:vue-dist</code> to your <code>.meteor/packages</code> file.  This gives you the full Vue package, including the ability to compile templates on the fly.  When you're getting started, you want Vue to compile your templates.  (Later on you can figure out a build process that pre-compiles Vue templates into render functions, then you can use the faster stripped-down run-time version of Vue that can't compile templates on the fly.)</li>
+    <li>Add <code>static-html</code> to your <code>.meteor/packages</code> file.  This will bundle up all your <code>.html</code> files without trying to compile them into Blaze templates.  You would also use the <code>static-html</code> package if you want to develop with React or Angular.</li>
+    <li><code>import { Vue } from 'meteor/meteormogul:vue-dist'</code> in a client-side <code>.js</code> file.  (That package only makes Vue available client side for now, so don't try importing Vue in server-side code.)</li>
+    <li>Add Vue templates to your <code>.html</code> files using <code>script type="text/x-template" id="template-name"</code> tags.  These will appear in your HTML source but won't affect the display of the page since the browser will interpret them as a script not a display element.</li>
+    <li>Use a programming editor that allows you to split screen, such as <a href="https://atom.io/">Atom</a>.  Splitting the screen will allow you to edit the <code>.html</code> template for your Vue components and the <code>.js</code> code in separate files but see the relevant information from both files at the same time.  Keeping HTML in <code>.html</code> files, JavaScript in <code>.js</code> files, and styles in <code>.css</code> files works well as long as you can split the screen to see them all at the same time when you're coding.  Your Vue components will be spread out over those three file types.  Keeping those files separate makes it easy for you to edit them because your editor already understands what HTML, JavaScript and CSS files are.  Furthermore, Meteor is already expecting those three types of files so the default build tool chain handles them fine.  But when you're working on a Vue component it's very helpful to see each file next to the other on the screen at the same time; a programming editor with split screen ability helps you work on each piece of a Vue component at the same time and see how it all works together.</li>
+    <li>Write the JavaScript for Vue instances and components in your <code>.js</code> files.  Refer to your templates by id (<code>template: '#template-name'</code>).  Vue will parse through your HTML looking for an element with that id to use as the template for the Vue instance or component.  If you don't specify a template, Vue will assume that whatever is inside the tag that is the render target for the Vue instance should be parsed as the template.</li>
+  </ol>
+
+  <p>If the above didn't make a lot of sense at first, don't panic!  It will probably take a few days of looking at the source code of the following examples before it all clicks in your mind.  If it still doesn't make sense after a week of playing around with the code, feel free to raise an issue on GitHub for the file that's not making sense to you.</p>
+
+  <p>Good luck!</p>
+
   <h2><a href="https://vuejs.org/v2/guide/index.html#Declarative-Rendering" target="_blank">Declarative Rendering</a></h2>
 
   <!-- Render target for hello-vue app -->
