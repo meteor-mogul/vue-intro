@@ -4,12 +4,15 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-base             # Packages every Meteor app needs to have
+meteor-base@1.3.0             # Packages every Meteor app needs to have
 
-standard-minifiers      # JS/CSS minifiers run for production mode
-es5-shim                # ECMAScript 5 compatibility for older browsers.
-ecmascript              # Enable ECMAScript2015+ syntax in app code
+es5-shim@4.7.0                # ECMAScript 5 compatibility for older browsers.
+ecmascript@0.10.0              # Enable ECMAScript2015+ syntax in app code
 
 static-html             # Doesn't compile Blaze templates
 meteormogul:vue-dist    # VueJS JavaScript framework (replaces Blaze)
 twbs:bootstrap          # Front-end component library (styles)
+standard-minifier-css
+standard-minifier-js
+shell-server
+dynamic-import
