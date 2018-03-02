@@ -75,7 +75,8 @@ if (Meteor.isClient) {
     methods: {
       checkWatch: function () {
         console.log('[expThree] this selector: ', this.selector, typeof this.selector);
-        if (typeof this.selector != 'number') { this.selector = 0; }
+        // We could try to catch some common problems before emitting selector to parent
+        // if (typeof this.selector != 'number') { this.selector = 0; }
         this.$emit('timecheck', this.selector);
       }
     }
@@ -85,6 +86,8 @@ if (Meteor.isClient) {
   // based on a selector prop passed to it by its parent.
   // NOTE: a functional component has no template and no data
   //       but it does have a context and props passed to it
+  // The render function of a functional component can create a component
+  // that does have a template and data.
   Vue.component('vc-experimental', {
     name: 'vc-experimental',
     // This is the magic that makes it a functional component
@@ -102,6 +105,7 @@ if (Meteor.isClient) {
         console.log("[vc-experimental] selection: ", selection, typeof selection);
         // a switch is the most flexible way to select a delegate component
         switch (selection) {
+          // These three components we've already defined
           case 0:
             return expOne;
             break;
@@ -112,7 +116,22 @@ if (Meteor.isClient) {
             return expThree;
             break;
           default:
-            return { template: "<div>Can't find my pants.</div>" };
+            // Default component object we'll define right here
+            return {
+              template: "#vc-experimental-template-4",
+              methods: {
+                // switcher function picks another component
+                switcher: function (selector) {
+                  console.log('[exp default] selector: ', selector, typeof selector);
+                  // This goes up to parent, which will send it back down
+                  // as the selector prop. So even though this functional
+                  // component doesn't have data itself, it can still react
+                  // to the changes in data (i.e. state) of its children or
+                  // parents.
+                  this.$emit('timecheck', selector);
+                }
+              }
+             };
         }
       }
 
