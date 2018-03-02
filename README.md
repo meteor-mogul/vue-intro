@@ -28,3 +28,7 @@ If you are updating Meteor to 1.6.1 from an older version, you made need to
 $ meteor npm install --save @babel/runtime
 $ meteor
 ```
+
+## Demo
+
+[https://meteor-mogul-vue-intro.herokuapp.com/](https://meteor-mogul-vue-intro.herokuapp.com/)

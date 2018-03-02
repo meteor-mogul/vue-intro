@@ -1,5 +1,9 @@
 # Changelog for Meteor Mogul vue-intro
 
+## [0.1.7] - 2018-03-02
+
+- Demo at https://meteor-mogul-vue-intro.herokuapp.com/
+
 ## [0.1.6] - 2018-03-02
 
 - Update to Meteor 1.6.1
